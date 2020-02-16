@@ -1,0 +1,79 @@
+{
+	"println": {
+		"prefix": "pl",
+		"body": [
+			"println!(\"{}\",${1});",
+		],
+	},
+	"return faileue err":  {
+		"prefix": "rfe",
+		"body": [
+			"return Err(failure::format_err!(\"{}\",${1}));",
+		],
+	},
+	"define result fn":  {
+		"prefix": "df",
+		"body": [
+			"fn ${1}(${2}) ->Result<${3},failure::Error> {",
+			"	${4}",
+			"}"
+		],
+	},
+	"define pub_result fn":  {
+		"prefix": "pdf",
+		"body": [
+			"fn ${1}(${2}) ->Result<${3},failure::Error> {",
+			"	${4}",
+			"}"
+		],
+	},
+	"define struct":  {
+		"prefix": "ds",
+		"body": [
+			"struct ${2} {"
+			"	${2}",
+			"}"
+		],
+	},
+	"define enum":  {
+		"prefix": "de",
+		"body": [
+			"enum ${2} {"
+			"	${2}",
+			"}"
+		],
+	},
+	"info log":  {
+		"prefix": "li",
+		"body": [
+			"info!(\"{}\",${1});",
+		],
+	},
+	"warn log":  {
+		"prefix": "wi",
+		"body": [
+			"warn!(\"{}\",${1});",
+		],
+	},
+	"error log":  {
+		"prefix": "ei",
+		"body": [
+			"error!(\"{}\",${1});",
+		],
+	},
+
+	"tests mod": {
+		"prefix": "mt",
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"	use super::*;"
+			"	#[test]"
+			"	fn test_${1}() {",
+			"		assert_eq!(true,true);"
+			"	}",
+			"}"
+		],
+		"description": "Log output to console"
+	}
+}
